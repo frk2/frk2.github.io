@@ -32,12 +32,42 @@ document.onkeydown = function(event) {
               break;
           case 38:
               // Key up.
+                            pubnub.publish({
+      channel: 'test-pi',
+      message: {
+          action: 'move', 
+          x: x,
+          y: ++y
+      },
+      callback: function(m){
+          console.log(m);
+      }
               break;
           case 39:
               // Key right.
+                            pubnub.publish({
+      channel: 'test-pi',
+      message: {
+          action: 'move', 
+          x: --x,
+          y: y
+      },
+      callback: function(m){
+          console.log(m);
+      }
               break;
           case 40:
               // Key down.
+                            pubnub.publish({
+      channel: 'test-pi',
+      message: {
+          action: 'move', 
+          x: x,
+          y: --y
+      },
+      callback: function(m){
+          console.log(m);
+      }
               break;
      }
      event.preventDefault();
