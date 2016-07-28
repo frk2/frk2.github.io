@@ -18,11 +18,12 @@ document.onkeydown = function(event) {
           code = event.charCode;
      switch(code) {
           case 37:
+          x += 5;
               pubnub.publish({
       channel: 'test-pi',
       message: {
           action: 'move', 
-          x: ++x,
+          x: x,
           y: y
       },
       callback: function(m){
@@ -33,12 +34,13 @@ document.onkeydown = function(event) {
               break;
           case 38:
               // Key up.
+              y+=5;
                             pubnub.publish({
       channel: 'test-pi',
       message: {
           action: 'move', 
           x: x,
-          y: ++y
+          y: y
       },
       callback: function(m){
           console.log(m);
@@ -47,11 +49,12 @@ document.onkeydown = function(event) {
               break;
           case 39:
               // Key right.
+              x -= 5;
                             pubnub.publish({
       channel: 'test-pi',
       message: {
           action: 'move', 
-          x: --x,
+          x: ,
           y: y
       },
       callback: function(m){
@@ -61,13 +64,14 @@ document.onkeydown = function(event) {
 
               break;
           case 40:
+          y -= 5;
               // Key down.
                             pubnub.publish({
       channel: 'test-pi',
       message: {
           action: 'move', 
           x: x,
-          y: --y
+          y: y
       },
       callback: function(m){
           console.log(m);
