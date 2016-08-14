@@ -19,6 +19,7 @@ document.onkeydown = function(event) {
      switch(code) {
           case 37:
           x += 5;
+	  x = Math.max(0, Math.min(100,x));
               pubnub.publish({
       channel: 'test-pi',
       message: {
@@ -35,6 +36,7 @@ document.onkeydown = function(event) {
           case 38:
               // Key up.
               y+=5;
+	  y = Math.max(0, Math.min(100,y));
                             pubnub.publish({
       channel: 'test-pi',
       message: {
@@ -50,6 +52,7 @@ document.onkeydown = function(event) {
           case 39:
               // Key right.
               x -= 5;
+	  x = Math.max(0, Math.min(100,x));
                             pubnub.publish({
       channel: 'test-pi',
       message: {
@@ -65,6 +68,7 @@ document.onkeydown = function(event) {
               break;
           case 40:
           y -= 5;
+	  y = Math.max(0, Math.min(100,y));
               // Key down.
                             pubnub.publish({
       channel: 'test-pi',
